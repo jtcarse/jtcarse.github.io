@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" type="text/css" href="loading-bar.css"/>
-    <script type="text/javascript" src="loading-bar.js"></script>
-    <div id="myLoadbar" style="margin:auto;width:60%"></div>
-    <script>
-        var bar = new ldBar("#myLoadbar", {
-            "stroke": "data:ldbar/res,stripe(#ff9,#fc9,1)",
-            "stroke-width": "10%"
-        });
-        var start = new Date('2022-06-05T07:00:00');
-        var end = new Date('2022-06-18T12:46:00');
-        var now = new Date();
-        var progress = (end - now) / (end - start);
-        bar.set(progress * 100);
-    </script>
+<link rel="stylesheet" type="text/css" href="dist/loading-bar.css"/>
+<script type="text/javascript" src="dist/loading-bar.js"></script>
+<style>
+.center {
+	margin: auto;
+	width: 80%;
+	padding: 1%;
+	text-align: center;
+}
+</style>
+<body>
+<div class="center"><p id="myText"></p></div>
+<div class="center" id="myLoadbar" style="margin:auto;width:60%"></div>
+<script>
+var bar = new ldBar("#myLoadbar", {
+	"type": "fill",
+	"img": "anime.png",
+	"precision": "0.01"
+});
+var start = new Date('2022-06-05T07:00:00');
+var end = new Date('2022-06-18T12:46:00');
+var now = new Date();
+var progress = (now - start) / (end - start);
+var remaining = end - now;
+var seconds = Math.ceil(remaining / 1000 % 60);
+var minutes = Math.ceil(remaining / 1000 / 60 % 60);
+var hours = Math.ceil(remaining / 1000 / 60 / 60 % 24);
+var days = Math.ceil(remaining / 1000 /60 / 60 / 24);
+bar.set(progress * 100);
+document.getElementById("myText").innerHTML = `Time to reunification: ${days} days, ${hours} hours, ${minutes} minutes`;
+</script>
+</body>
 </html>
