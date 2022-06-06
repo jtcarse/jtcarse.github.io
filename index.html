@@ -2,10 +2,11 @@
 <html>
     <link rel="stylesheet" type="text/css" href="loading-bar.css"/>
     <script type="text/javascript" src="loading-bar.js"></script>
-    <div id="myLoadbar"></div>
+    <div id="myLoadbar" style="margin:auto;width:60%"></div>
     <script>
         var bar = new ldBar("#myLoadbar", {
-            "stroke": "data:ldbar/res,stripe(#ff9,#fc9,1)"
+            "stroke": "data:ldbar/res,stripe(#ff9,#fc9,1)",
+            "stroke-width": "10%"
         });
         var start = new Date('2022-06-05T07:00:00');
         var end = new Date('2022-06-18T12:46:00');
