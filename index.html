@@ -27,7 +27,7 @@ var remaining = end - now;
 var seconds = Math.ceil(remaining / 1000 % 60);
 var minutes = Math.ceil(remaining / 1000 / 60 % 60);
 var hours = Math.ceil(remaining / 1000 / 60 / 60 % 24);
-var days = Math.ceil(remaining / 1000 /60 / 60 / 24);
+var days = Math.round(remaining / 1000 / 60 / 60 / 24);
 bar.set(progress * 100);
 document.getElementById("myText").innerHTML = `Time to reunification: ${days} days, ${hours} hours, ${minutes} minutes`;
 </script>
